@@ -12,11 +12,11 @@ public class ExcelFileUpdate {
          String[] indices = (String[]) prices.keySet().toArray(new String[16]);
          FileInputStream fsIP = new FileInputStream(new File("/Users/danielberlin/Documents/Duke/Fall_2018/ECON256/ECON256_Journal_BerlinDaniel.xlsx")); //Read the spreadsheet that needs to be updated  
          XSSFWorkbook wb = new XSSFWorkbook(fsIP); //Access the workbook  
-         XSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+         XSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet to modify
          
          for (int i = 1; i < 16; i++) {
         	 Cell cell = null; // declare a Cell object
-             cell = worksheet.getRow(20).getCell(i+1);   // Access the second cell in second row to update the value
+             cell = worksheet.getRow(20).getCell(i+1);   // Access each cell in the specified row,col to update the value
              cell.setCellValue(prices.get(indices[i]).toString());  // Get current cell value value and overwrite the value
          }
            
